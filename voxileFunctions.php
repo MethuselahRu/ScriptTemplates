@@ -1,29 +1,12 @@
 <?php
 if(!defined('VOXILE_FUNCTIONS_INCLUSION_CHECK'))
 {
-	die("Access denied!");
+	die();
 }
-
-/* ========== ========== ========== ========== ========== ========== ==========
- * Начало настраиваемой секции
- * ========== ========== ========== ========== ========== ========== ==========
- */
-$voxileConfig = array(
-	// Пятисимвольный код проекта
-	'projectCode' => '<Project code>',
-	// Ключевое слово (или фраза) вашего проекта
-	'secretKeyword' => '<Some password>',
-
-	// Путь к каталогу установленного XenForo
-	'xenForoPath' => dirname(__FILE__) . "/../../voxile.ru/forum/",
-);
-/* ========== ========== ========== ========== ========== ========== ==========
- * Конец настраиваемой секции
- * ========== ========== ========== ========== ========== ========== ==========
- */
+define('VOXILE_SETTINGS_INCLUSION_CHECK', true);
+require_once "voxileSettings.php";
 
 $voxileConfig['projectCode'] = strtoupper($voxileConfig['projectCode']);
-
 $voxileConfig['aes256key'] = hash(
 	"SHA256",
 	$voxileConfig['projectCode'] . $voxileConfig['secretKeyword'],
