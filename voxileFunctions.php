@@ -3,8 +3,6 @@ if(!defined('VOXILE_FUNCTIONS_INCLUSION_CHECK'))
 {
 	die();
 }
-define('VOXILE_SETTINGS_INCLUSION_CHECK', true);
-require_once "voxileSettings.php";
 
 $voxileConfig['projectCode'] = strtoupper($voxileConfig['projectCode']);
 $voxileConfig['aes256key'] = hash(
@@ -34,24 +32,24 @@ function voxile_decrypt($crypted2plain)
 			MCRYPT_MODE_CBC, $voxileConfig['iv']
 		), "\0\3");
 }
-function voxile_auth_xenforo($login, $password)
+
+function voxile_auth_xenforo_v12x($login, $password)
 {
 	global $voxileConfig;
-	$startTime = microtime(true);
-	$xenforoPath = $voxileConfig['xenForoPath'];
-	require($xenforoPath . "/library/XenForo/Autoloader.php");
-	XenForo_Autoloader::getInstance()->setupAutoloader($xenforoPath . "/library/");
-	XenForo_Application::initialize($xenforoPath . "/library", $xenforoPath);
-	XenForo_Application::set('page_start_time', $startTime);
+	$xenForoPath = $voxileConfig['xenForoPath'];
+	require($xenForoPath . "/library/XenForo/Autoloader.php");
+	XenForo_Autoloader::getInstance()->setupAutoloader($xenForoPath . "/library/");
+	XenForo_Application::initialize($xenForoPath . "/library", $xenForoPath);
+	XenForo_Application::set('page_start_time', microtime(true));
 	$application = XenForo_Application::get('db');
 	if(isset($login) && isset($password))
 	{
-		$query = "SELECT `user_id` FROM `xf_user` WHERE `username` = " . $application->quote($login);
+		$query = "SELECT `user_id` FROM `xf_user` WHERE `username` = '" . $application->quote($login) . "'";
 		$result = $application->fetchCol($query);
 		if(count($result))
 		{
 			$user_id = $result[0];
-			$query = "SELECT `username` FROM `xf_user` WHERE `username` = " . $application->quote($login);
+			$query = "SELECT `username` FROM `xf_user` WHERE `username` = '" . $application->quote($login) . "'";
 			$result = $application->fetchCol($query);
 			if(count($result))
 			{

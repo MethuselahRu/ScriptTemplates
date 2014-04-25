@@ -15,7 +15,8 @@ $voxileConfig = array(
 	'secretKeyword' => '<Some password>',
 
 	// Относительный или абсолютный путь к каталогу установленного XenForo
-	'xenForoPath' => dirname(__FILE__) . "/../../voxile.ru/forum/",
+	// Приветствуется использование директивы dirname(__FILE__) — указывает каталог с текущим файлом
+	'xenForoPath' => dirname(__FILE__) . "/../../your-site-name.ru/forum/",
 );
 /* ========== ========== ========== ========== ========== ========== ==========
  * Конец настраиваемой секции
