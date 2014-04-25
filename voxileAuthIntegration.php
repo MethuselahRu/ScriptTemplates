@@ -6,7 +6,7 @@ require_once "voxileFunctions.php";
 
 // Фильтрация и декодирование полученных данных
 $encoded = filter_input(INPUT_POST, 'encoded', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
-$decoded = explode(":", voxile_decrypt($encoded));
+$decoded = explode("\0", voxile_decrypt($encoded));
 
 if(count($decoded) == 3)
 {
