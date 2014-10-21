@@ -1,4 +1,8 @@
 <?php
+/*
+ * ЭТО СЛУЖЕБНЫЙ ФАЙЛ СИСТЕМЫ ИНТЕГРАЦИИ VOXILE
+ * НЕ ИЗМЕНЯЙТЕ ЕГО БЕЗ ПОНИМАНИЯ ПРОИСХОДЯЩЕГО
+ */
 if(!defined('VOXILE_FUNCTIONS_INCLUSION_CHECK'))
 {
 	die();

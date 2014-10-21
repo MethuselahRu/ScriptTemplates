@@ -1,4 +1,8 @@
 <?php
+/*
+ * ЭТО КОНФИГУРАЦИОННЫЙ ФАЙЛ СИСТЕМЫ ИНТЕГРАЦИИ VOXILE
+ * АККУРАТНО СЛЕДУЙТЕ ИНСТРУКЦИЯМ НИЖЕ, ЧТОБЫ ВСЁ РАБОТАЛО ПРАВИЛЬНО
+ */
 if(!defined('VOXILE_SETTINGS_INCLUSION_CHECK'))
 {
 	die("Access denied!");

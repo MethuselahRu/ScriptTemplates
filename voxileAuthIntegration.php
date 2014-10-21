@@ -1,4 +1,9 @@
 <?php
+/*
+ * ЭТО ОСНОВНОЙ РАБОЧИЙ ФАЙЛ СИСТЕМЫ ИНТЕГРАЦИИ VOXILE
+ * ВНЕШНИЕ СВЕТЛЫЕ СИЛЫ ОБРАЩАЮТСЯ К НЕМУ, ЧТОБЫ ВЫ УДОСТОВЕРИЛИ
+ * ПОДЛИННОСТЬ НЕКОЙ ПЕРЕДАННОЙ УЧЁТНОЙ ЗАПИСИ
+ */
 define('VOXILE_SETTINGS_INCLUSION_CHECK', true);
 define('VOXILE_FUNCTIONS_INCLUSION_CHECK', true);
 require_once "voxileSettings.php";
@@ -10,6 +15,7 @@ $decoded = explode("\0", voxile_decrypt($encoded));
 
 if(count($decoded) == 3)
 {
+	// Разбиение принятых данных на составляющие
 	$username = $decoded[0];
 	$password = $decoded[1];
 	$trashbox = $decoded[2];
