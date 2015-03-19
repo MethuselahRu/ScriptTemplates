@@ -1,9 +1,9 @@
 <?php
 /*
- * ЭТО КОНФИГУРАЦИОННЫЙ ФАЙЛ СИСТЕМЫ ИНТЕГРАЦИИ VOXILE
+ * ЭТО КОНФИГУРАЦИОННЫЙ ФАЙЛ СИСТЕМЫ ИНТЕГРАЦИИ METHUSELAH
  * АККУРАТНО СЛЕДУЙТЕ ИНСТРУКЦИЯМ НИЖЕ, ЧТОБЫ ВСЁ РАБОТАЛО ПРАВИЛЬНО
  */
-if(!defined('VOXILE_SETTINGS_INCLUSION_CHECK'))
+if(!defined('METHUSELAH_INCLUSION_CHECK'))
 {
 	die("Access denied!");
 }
@@ -12,15 +12,15 @@ if(!defined('VOXILE_SETTINGS_INCLUSION_CHECK'))
  * Начало настраиваемой секции
  * ========== ========== ========== ========== ========== ========== ==========
  */
-$voxileConfig = array(
+$config = array(
 	// Пятисимвольный код проекта
-	'projectCode' => '<Project code>',
+	'projectCode'   => '<КОД ПРОЕКТА>',
 	// Ключевое слово (или фраза) вашего проекта
-	'secretKeyword' => '<Some password>',
+	'secretKeyword' => '<СЕКРЕТНОЕ СЛОВО>',
 
 	// Относительный или абсолютный путь к каталогу установленного XenForo
 	// Приветствуется использование директивы dirname(__FILE__) — указывает каталог с текущим файлом
-	'xenForoPath' => dirname(__FILE__) . "/../../your-site-name.ru/forum/",
+	'xenForoPath'   => __DIR__ . "/ПУТЬ/К/XENFORO/",
 );
 /* ========== ========== ========== ========== ========== ========== ==========
  * Конец настраиваемой секции
