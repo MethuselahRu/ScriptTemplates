@@ -19,11 +19,21 @@ $password   = $decrypted['password'];
 
 if(isset($username) && isset($password))
 {
-	// XenForo 1.2.1 или совместимый
-	$xenforo = auth_throught_xenforo($username, $password);
-	exit(is_array($xenforo)
-		? json_encode($xenforo)
-		: $xenforo);
+	switch($config['cmsType'])
+	{
+	case "XENFORO_PRE12":
+		$xenforo = auth_throught_xenforo1x($username, $password, true);
+		exit(is_array($xenforo)
+			? json_encode($xenforo)
+			: $xenforo);
+	case "XENFORO_LATEST_1x":
+		$xenforo = auth_throught_xenforo1x($username, $password, false);
+		exit(is_array($xenforo)
+			? json_encode($xenforo)
+			: $xenforo);
+	default:
+		die("CONFIGURATION BROKEN -- UNKNOWN ENGINE HAS BEEN SET");
+	}
 }
 
 // Отрицательный результат
